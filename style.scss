@@ -1,0 +1,123 @@
+$main-color: #333335;
+$max-width: 1300px;
+* {
+  text-decoration: none;
+  list-style: none;
+  font-family: "Ubuntu", Courier, sans-serif;
+}
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.header {
+  position: sticky;
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    max-width: 1200px;
+
+    .menu__list {
+      display: flex;
+      padding-left: 190px;
+      position: relative;
+      .menu__logo {
+        position: absolute;
+        left: 0;
+        max-width: 120px;
+      }
+      .menu__item {
+        font-size: 15px;
+        font-weight: 700;
+        color: #333335;
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+.homepage__hero {
+  background-image: url(images/main_image.jpeg);
+  background-size: cover;
+  background-position: 50%;
+  height: 70vh;
+  max-height: 70vh;
+  object-fit: cover;
+  .homepage__hero__items {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .homepage__hero__description {
+    color: #fff;
+    position: absolute;
+    bottom: 100px;
+    max-width: 600px;
+    .homepage__hero__header-one {
+      font-size: 46px;
+      line-height: 1;
+      text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+    }
+    .homepage__hero__button {
+      color: #fff;
+      background: none;
+      border: none;
+      background-color: #0a2d81;
+      padding: 8px 20px;
+    }
+  }
+  .homepage__hero__list-container {
+    position: absolute;
+    top: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    .homepage__hero__list {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .homepage__hero__item {
+        background-position: bottom;
+        height: 371px;
+        width: 25%;
+        flex-basis: calc((100 - 3 * 10) / 4);
+        transition: height 0.5s, margin 0.5s, background-position 0.5s ease;
+      }
+
+      #homepage__hero__item1 {
+        background-image: url(images/test_drive.jpeg);
+        margin-top: 0;
+      }
+      #homepage__hero__item1:hover {
+        margin-top: -100px;
+        height: 471px;
+      }
+      #homepage__hero__item2 {
+        background-image: url(images/configurator.jpeg);
+        margin-top: 45px;
+      }
+      #homepage__hero__item2:hover {
+        margin-top: -100px;
+        height: 515px;
+      }
+      #homepage__hero__item3 {
+        background-image: url(images/clothes.jpeg);
+        margin-top: 20px;
+      }
+      #homepage__hero__item3:hover {
+        margin-top: -100px;
+        height: 495px;
+      }
+      #homepage__hero__item4 {
+        background-image: url(images/accesories.jpeg);
+        margin-top: 43px;
+      }
+      #homepage__hero__item4:hover {
+        margin-top: -100px;
+        height: 515px;
+      }
+    }
+  }
+}
