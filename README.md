@@ -1,5 +1,5 @@
 # Yamaha-Website
-<a href=" m0ri4r.github.io/Yamaha-Website/">YamahaWebsite</a>
+[YamahaWebsite](https://m0ri4r.github.io/Yamaha-Website/)
 ## Used technologies
 <ul>
     <li> Sass </li>
