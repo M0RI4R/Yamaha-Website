@@ -7,10 +7,31 @@ $footer-text-color: #afafaf;
   text-decoration: none;
   list-style: none;
   font-family: "Ubuntu", Courier, sans-serif;
+  box-sizing: border-box;
+}
+a {
+  font-weight: 500;
+}
+h3 {
+  font-family: Play, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  z-index: 2;
 }
 body {
-  box-sizing: border-box;
   position: relative;
+}
+.background {
+  height: 790px;
+  background-color: $main-color;
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  top: 900px;
 }
 .header {
   background: #fff;
@@ -19,7 +40,7 @@ body {
   height: 80px;
   display: flex;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 
   .menu {
     display: flex;
@@ -54,7 +75,7 @@ body {
   object-fit: cover;
   position: relative;
   .homepage__hero__items {
-    max-width: 920px;
+    max-width: 1200px;
     margin: 0 auto;
   }
   .homepage__hero__description {
@@ -65,6 +86,7 @@ body {
     .homepage__hero__header-one {
       font-size: 46px;
       line-height: 1;
+      margin-bottom: 20px;
       text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
     }
     .homepage__hero__button {
@@ -76,64 +98,100 @@ body {
     }
   }
 }
+
 .list-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  margin: 20px 70px 0px 70px;
+  position: relative;
+  z-index: 2;
 
   .list-container__list {
     display: flex;
-    gap: 10px;
-    z-index: 2;
-    max-width: 920px;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+
     .list-container__item {
       background-position: bottom;
-      height: 371px;
+      background-repeat: no-repeat;
       width: 25%;
       transition: height 0.5s, margin 0.5s, background-position 0.5s ease;
+      position: relative;
+      .list-conteiner__description {
+        position: absolute;
+        top: 95%;
+        transform: translateY(-100%);
+        transition: top 0.5s ease-in-out;
+        padding: 10px;
+        .list-conteiner__header-three {
+          color: #fff;
+          font-size: 36px;
+          text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+        }
+        .list-conteiner__paragraph {
+          color: #fff;
+          font-size: 14px;
+          margin-top: 5px;
+          width: 80%;
+          text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
+        }
+      }
     }
-
+    .list-container__item:hover .list-conteiner__description {
+      top: 20%;
+    }
     #list-container__item1 {
       background-image: url(images/test_drive.jpeg);
+      height: 371px;
       margin-top: 0;
     }
     #list-container__item1:hover {
-      margin-top: -100px;
       height: 471px;
+      margin-top: -100px;
     }
+
     #list-container__item2 {
       background-image: url(images/configurator.jpeg);
-      margin-top: 45px;
+      height: 432px;
+      margin-top: 65px;
     }
     #list-container__item2:hover {
+      height: 597px;
       margin-top: -100px;
-      height: 515px;
     }
     #list-container__item3 {
       background-image: url(images/clothes.jpeg);
-      margin-top: 20px;
+      height: 432px;
+      margin-top: 23px;
     }
     #list-container__item3:hover {
+      height: 555px;
       margin-top: -100px;
-      height: 495px;
     }
     #list-container__item4 {
       background-image: url(images/accesories.jpeg);
+      height: 320px;
       margin-top: 43px;
     }
     #list-container__item4:hover {
+      height: 463px;
       margin-top: -100px;
-      height: 515px;
     }
   }
 }
+
 .title {
+  color: #fff;
   text-align: center;
   margin: 50px 0 40px 0;
+  position: relative;
+  z-index: 2;
+
   .title__header-two {
     font-weight: 700;
     font-size: 36px;
     line-height: 36px;
+    margin-bottom: 20px;
   }
   .title__paragraph {
     font-size: 15px;
@@ -142,21 +200,48 @@ body {
   }
 }
 .banner-grid {
-  max-width: 920px;
+  max-width: 1200px;
+  padding-top: 40px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
+
   .banner-grid__list {
     display: grid;
     gap: 10px;
     .banner-grid__item {
-      height: 260px;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 260px;
+      justify-content: end;
+      padding: 10px;
+      position: relative;
+    }
+    .banner-grid__item::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2) 62%,
+        rgba(0, 0, 0, 0)
+      );
+      padding: 0;
+    }
+    .banner-grid__paragraph {
+      font-weight: 600;
+      z-index: 2;
     }
     #banner-grid__item1 {
       background-image: url(images/harmo.jpeg);
-      // background-position: center;
-      // object-fit: cover;
     }
     #banner-grid__item2 {
       background-image: url(images/app_garage.png);
@@ -169,29 +254,37 @@ body {
     }
     #banner-grid__item5 {
       background-image: url(images/start_good_habbits.png);
+      background-color: white;
     }
     #banner-grid__item6 {
       background-image: url(images/manual.jpeg);
     }
   }
 }
+
 footer {
   background: $main-color;
+  margin-top: 20px;
+  padding: 20px 0 20px 0;
 
   .footer {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 920px;
+    max-width: 1200px;
     margin: 20px auto;
     .footer__item {
       flex-basis: calc((100% - 4 * 20px) / 5);
       .footer__header-three {
-        margin-bottom: 10px;
-        font-size: 14px;
+        margin-bottom: 5px;
+        font-size: 12px;
         line-height: 30px;
       }
       .footer__list-item {
+        margin-bottom: 5px;
+        .footer__anchor {
+          font-size: 12px;
+        }
       }
     }
     .footer__item * {
