@@ -47,7 +47,9 @@ body {
     justify-content: space-around;
     margin: 0 auto;
     max-width: 1200px;
-
+    .menu__mobile {
+      display: none;
+    }
     .menu__list {
       display: flex;
       padding-left: 190px;
@@ -117,12 +119,14 @@ body {
       width: 25%;
       transition: height 0.5s, margin 0.5s, background-position 0.5s ease;
       position: relative;
+
       .list-conteiner__description {
         position: absolute;
         top: 95%;
         transform: translateY(-100%);
         transition: top 0.5s ease-in-out;
         padding: 10px;
+
         .list-conteiner__header-three {
           color: #fff;
           font-size: 36px;
@@ -136,10 +140,62 @@ body {
           text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
         }
       }
+      .list-container__buttons {
+        text-align: center;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        width: 80%;
+        .list-container__link {
+          border: 2px solid white;
+          border-radius: 5px;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 700;
+          margin-bottom: 10px;
+          padding: 10px;
+        }
+        .list-container__link:hover {
+          background-color: #fff;
+          color: $main-color;
+        }
+      }
+    }
+    .list-container__item::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.2) 62%,
+        rgba(0, 0, 0, 0)
+      );
+      padding: 0;
+      opacity: 0;
     }
     .list-container__item:hover .list-conteiner__description {
       top: 20%;
     }
+    .list-container__item:hover .list-container__buttons {
+      top: 40%;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+    .list-container__item:hover::before {
+      opacity: 1;
+      transition: 0.5s ease-in-out;
+    }
+
     #list-container__item1 {
       background-image: url(images/test_drive.jpeg);
       height: 371px;
@@ -275,6 +331,12 @@ footer {
     margin: 20px auto;
     .footer__item {
       flex-basis: calc((100% - 4 * 20px) / 5);
+      .footer__social-list {
+        display: flex;
+        font-size: 28px;
+        justify-content: space-evenly;
+        margin-top: 8px;
+      }
       .footer__header-three {
         margin-bottom: 5px;
         font-size: 12px;
@@ -292,6 +354,20 @@ footer {
     }
   }
 }
+@media (max-width: 1101px) {
+  .list-container {
+    .list-container__list {
+      gap: 0px;
+      .list-container__item {
+        .list-conteiner__description {
+          .list-conteiner__header-three {
+            font-size: 26px;
+          }
+        }
+      }
+    }
+  }
+}
 @media (min-width: 1024px) {
   .banner-grid__list {
     grid-template-columns: repeat(3, 1fr);
@@ -302,8 +378,72 @@ footer {
 }
 
 @media (max-width: 914px) {
-  .menu__item {
-    display: none;
+  .list-container {
+    margin: 0;
+    .list-container__list {
+      display: block;
+      gap: 0px;
+      .list-container__item {
+        width: 100%;
+        .list-conteiner__description {
+          top: 70%;
+          left: 50%;
+          transform: translateX(-50%);
+          .list-conteiner__header-three {
+            font-size: 36px;
+          }
+        }
+      }
+    }
+  }
+  .header {
+    margin: auto;
+
+    .menu {
+      .menu__mobile {
+        display: inline-block;
+        position: absolute;
+        right: 24px;
+        top: 30px;
+        font-size: 28px;
+        .fa-cart-shopping {
+          position: relative;
+          .menu__cart-item-number {
+            color: #fff;
+            line-height: 10px;
+            font-size: 15px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            border-radius: 50%;
+            background-color: #afafaf;
+            padding: 5px;
+          }
+        }
+      }
+      .menu__mobile a {
+        color: $main-color;
+        padding-right: 24px;
+      }
+      .menu__button {
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+      }
+      .menu__list {
+        align-items: center;
+        display: flex;
+
+        .menu__item {
+          display: none;
+        }
+        .menu__logo {
+          position: fixed;
+          margin-left: 24px;
+        }
+      }
+    }
   }
 }
 @media (min-width: 600px) {

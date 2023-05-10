@@ -50,6 +50,9 @@ body {
   margin: 0 auto;
   max-width: 1200px;
 }
+.header .menu .menu__mobile {
+  display: none;
+}
 .header .menu .menu__list {
   display: flex;
   padding-left: 190px;
@@ -139,8 +142,53 @@ body {
   width: 80%;
   text-shadow: 0 2px 7px rgba(0, 0, 0, 0.35);
 }
+.list-container .list-container__list .list-container__item .list-container__buttons {
+  text-align: center;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  width: 80%;
+}
+.list-container .list-container__list .list-container__item .list-container__buttons .list-container__link {
+  border: 2px solid white;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.list-container .list-container__list .list-container__item .list-container__buttons .list-container__link:hover {
+  background-color: #fff;
+  color: #333335;
+}
+.list-container .list-container__list .list-container__item::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2) 62%, rgba(0, 0, 0, 0));
+  padding: 0;
+  opacity: 0;
+}
 .list-container .list-container__list .list-container__item:hover .list-conteiner__description {
   top: 20%;
+}
+.list-container .list-container__list .list-container__item:hover .list-container__buttons {
+  top: 40%;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+.list-container .list-container__list .list-container__item:hover::before {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
 }
 .list-container .list-container__list #list-container__item1 {
   background-image: url(images/test_drive.jpeg);
@@ -270,6 +318,12 @@ footer .footer {
 footer .footer .footer__item {
   flex-basis: calc((100% - 80px) / 5);
 }
+footer .footer .footer__item .footer__social-list {
+  display: flex;
+  font-size: 28px;
+  justify-content: space-evenly;
+  margin-top: 8px;
+}
 footer .footer .footer__item .footer__header-three {
   margin-bottom: 5px;
   font-size: 12px;
@@ -285,6 +339,14 @@ footer .footer .footer__item * {
   color: #afafaf;
 }
 
+@media (max-width: 1101px) {
+  .list-container .list-container__list {
+    gap: 0px;
+  }
+  .list-container .list-container__list .list-container__item .list-conteiner__description .list-conteiner__header-three {
+    font-size: 26px;
+  }
+}
 @media (min-width: 1024px) {
   .banner-grid__list {
     grid-template-columns: repeat(3, 1fr);
@@ -294,8 +356,68 @@ footer .footer .footer__item * {
   }
 }
 @media (max-width: 914px) {
-  .menu__item {
+  .list-container {
+    margin: 0;
+  }
+  .list-container .list-container__list {
+    display: block;
+    gap: 0px;
+  }
+  .list-container .list-container__list .list-container__item {
+    width: 100%;
+  }
+  .list-container .list-container__list .list-container__item .list-conteiner__description {
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .list-container .list-container__list .list-container__item .list-conteiner__description .list-conteiner__header-three {
+    font-size: 36px;
+  }
+  .header {
+    margin: auto;
+  }
+  .header .menu .menu__mobile {
+    display: inline-block;
+    position: absolute;
+    right: 24px;
+    top: 30px;
+    font-size: 28px;
+  }
+  .header .menu .menu__mobile .fa-cart-shopping {
+    position: relative;
+  }
+  .header .menu .menu__mobile .fa-cart-shopping .menu__cart-item-number {
+    color: #fff;
+    line-height: 10px;
+    font-size: 15px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    border-radius: 50%;
+    background-color: #afafaf;
+    padding: 5px;
+  }
+  .header .menu .menu__mobile a {
+    color: #333335;
+    padding-right: 24px;
+  }
+  .header .menu .menu__button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  .header .menu .menu__list {
+    align-items: center;
+    display: flex;
+  }
+  .header .menu .menu__list .menu__item {
     display: none;
+  }
+  .header .menu .menu__list .menu__logo {
+    position: fixed;
+    margin-left: 24px;
   }
 }
 @media (min-width: 600px) {
