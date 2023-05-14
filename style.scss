@@ -40,30 +40,83 @@ body {
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 3;
 
   .menu {
     display: flex;
-    justify-content: space-around;
-    margin: 0 auto;
+    justify-content: space-between;
     max-width: 1200px;
+    width: -webkit-fill-available;
+    position: relative;
+    .menu__rolling-down {
+      background-color: #fff;
+      border-top: 1px solid #bfbfc9;
+      display: none;
+      position: absolute;
+      top: 63px;
+      width: 100%;
+
+      .menu__roling-down-left {
+        width: 18%;
+        background-color: $main-color;
+        height: 560px;
+        .menu__rolling-down-header {
+          color: red;
+        }
+        .menu__roling-down-left-links {
+          .menu__roling-down-left-item {
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            font-weight: 600;
+            justify-content: space-between;
+            padding: 10px 20px;
+          }
+          .menu__roling-down-left-item:hover {
+            background-color: #ee1212;
+            transition: 0.3s ease-in-out;
+          }
+        }
+      }
+    }
+    .menu__rolling-down-active {
+      display: block;
+    }
+    .menu__logo {
+      max-width: 120px;
+    }
     .menu__mobile {
       display: none;
     }
     .menu__list {
-      display: flex;
-      padding-left: 190px;
-      position: relative;
-      .menu__logo {
-        position: absolute;
-        left: 0;
-        max-width: 120px;
-      }
+      display: -webkit-inline-box;
+      margin: auto;
+
       .menu__item {
-        font-size: 15px;
-        font-weight: 700;
-        color: #333335;
-        padding: 10px 20px;
+        position: relative;
+        .menu__link {
+          font-size: 20px;
+          font-weight: 700;
+          color: #333335;
+          padding: 10px 20px 26px 20px;
+          .menu__chevron {
+            display: none;
+          }
+        }
+      }
+      .menu__item-underline {
+        border-bottom: 3px solid #ee1212;
+      }
+      .menu__item:hover::before {
+        content: "";
+        position: absolute;
+        background-color: #ee1212;
+        width: 100%;
+        height: 3px;
+        left: 0;
+        bottom: -28px;
+        z-index: 2;
       }
     }
   }
@@ -377,7 +430,7 @@ footer {
   }
 }
 
-@media (max-width: 914px) {
+@media (max-width: 984px) {
   .list-container {
     margin: 0;
     .list-container__list {
@@ -400,11 +453,13 @@ footer {
     margin: auto;
 
     .menu {
+      .menu__rolling-down {
+        display: none;
+      }
       .menu__mobile {
         display: inline-block;
         position: absolute;
         right: 24px;
-        top: 30px;
         font-size: 28px;
         .fa-cart-shopping {
           position: relative;
@@ -425,24 +480,55 @@ footer {
         color: $main-color;
         padding-right: 24px;
       }
-      .menu__button {
+      .menu__button,
+      .menu__button-x {
         background: none;
         border: none;
         font-size: 28px;
         cursor: pointer;
+        color: $main-color;
+      }
+      .menu__button-hide {
+        display: none;
       }
       .menu__list {
-        align-items: center;
-        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 63px;
+        width: 0;
+        background: $main-color;
+        height: 100vh;
+        right: -100vw;
+        transition: 0.3s ease-in;
+        overflow: hidden;
 
         .menu__item {
-          display: none;
-        }
-        .menu__logo {
-          position: fixed;
-          margin-left: 24px;
+          border-bottom: 1px solid #fff;
+          padding: 0;
+          .menu__link {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 20px;
+
+            .menu__chevron {
+              display: block;
+            }
+          }
         }
       }
+      .menu__list-active {
+        display: flex;
+        width: 100vw;
+        transform: translateX(-100vw);
+        overflow: hidden;
+        transition: 0.3s ease-in;
+      }
+    }
+    .menu__logo {
+      margin-left: 10px;
     }
   }
 }

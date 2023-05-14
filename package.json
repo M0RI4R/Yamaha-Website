@@ -1,0 +1,20 @@
+{
+  "name": "yamaha-website",
+  "version": "1.0.0",
+  "description": "<a href=\"https://m0ri4r.github.io/Yamaha-Website/\">YamahaWebsite</a>\r ## Used technologies\r <ul>\r     <li> Sass </li>\r     <li>BEM</li>\r \t\t<li>HTML</li>",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M0RI4R/Yamaha-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M0RI4R/Yamaha-Website/issues"
+  },
+  "homepage": "https://github.com/M0RI4R/Yamaha-Website#readme"
+}

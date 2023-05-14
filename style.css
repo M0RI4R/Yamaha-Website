@@ -42,32 +42,81 @@ body {
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 3;
 }
 .header .menu {
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
+  justify-content: space-between;
   max-width: 1200px;
+  width: -webkit-fill-available;
+  position: relative;
+}
+.header .menu .menu__rolling-down {
+  background-color: #fff;
+  border-top: 1px solid #bfbfc9;
+  display: none;
+  position: absolute;
+  top: 63px;
+  width: 100%;
+}
+.header .menu .menu__rolling-down .menu__roling-down-left {
+  width: 18%;
+  background-color: #333335;
+  height: 560px;
+}
+.header .menu .menu__rolling-down .menu__roling-down-left .menu__rolling-down-header {
+  color: red;
+}
+.header .menu .menu__rolling-down .menu__roling-down-left .menu__roling-down-left-links .menu__roling-down-left-item {
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.header .menu .menu__rolling-down .menu__roling-down-left .menu__roling-down-left-links .menu__roling-down-left-item:hover {
+  background-color: #ee1212;
+  transition: 0.3s ease-in-out;
+}
+.header .menu .menu__rolling-down-active {
+  display: block;
+}
+.header .menu .menu__logo {
+  max-width: 120px;
 }
 .header .menu .menu__mobile {
   display: none;
 }
 .header .menu .menu__list {
-  display: flex;
-  padding-left: 190px;
-  position: relative;
-}
-.header .menu .menu__list .menu__logo {
-  position: absolute;
-  left: 0;
-  max-width: 120px;
+  display: -webkit-inline-box;
+  margin: auto;
 }
 .header .menu .menu__list .menu__item {
-  font-size: 15px;
+  position: relative;
+}
+.header .menu .menu__list .menu__item .menu__link {
+  font-size: 20px;
   font-weight: 700;
   color: #333335;
-  padding: 10px 20px;
+  padding: 10px 20px 26px 20px;
+}
+.header .menu .menu__list .menu__item .menu__link .menu__chevron {
+  display: none;
+}
+.header .menu .menu__list .menu__item-underline {
+  border-bottom: 3px solid #ee1212;
+}
+.header .menu .menu__list .menu__item:hover::before {
+  content: "";
+  position: absolute;
+  background-color: #ee1212;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  bottom: -28px;
+  z-index: 2;
 }
 
 .homepage__hero {
@@ -355,7 +404,7 @@ footer .footer .footer__item * {
     background-color: grey;
   }
 }
-@media (max-width: 914px) {
+@media (max-width: 984px) {
   .list-container {
     margin: 0;
   }
@@ -377,11 +426,13 @@ footer .footer .footer__item * {
   .header {
     margin: auto;
   }
+  .header .menu .menu__rolling-down {
+    display: none;
+  }
   .header .menu .menu__mobile {
     display: inline-block;
     position: absolute;
     right: 24px;
-    top: 30px;
     font-size: 28px;
   }
   .header .menu .menu__mobile .fa-cart-shopping {
@@ -402,22 +453,52 @@ footer .footer .footer__item * {
     color: #333335;
     padding-right: 24px;
   }
-  .header .menu .menu__button {
+  .header .menu .menu__button,
+  .header .menu .menu__button-x {
     background: none;
     border: none;
     font-size: 28px;
     cursor: pointer;
+    color: #333335;
   }
-  .header .menu .menu__list {
-    align-items: center;
-    display: flex;
-  }
-  .header .menu .menu__list .menu__item {
+  .header .menu .menu__button-hide {
     display: none;
   }
-  .header .menu .menu__list .menu__logo {
-    position: fixed;
-    margin-left: 24px;
+  .header .menu .menu__list {
+    flex-direction: column;
+    position: absolute;
+    top: 63px;
+    width: 0;
+    background: #333335;
+    height: 100vh;
+    right: -100vw;
+    transition: 0.3s ease-in;
+    overflow: hidden;
+  }
+  .header .menu .menu__list .menu__item {
+    border-bottom: 1px solid #fff;
+    padding: 0;
+  }
+  .header .menu .menu__list .menu__item .menu__link {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px;
+  }
+  .header .menu .menu__list .menu__item .menu__link .menu__chevron {
+    display: block;
+  }
+  .header .menu .menu__list-active {
+    display: flex;
+    width: 100vw;
+    transform: translateX(-100vw);
+    overflow: hidden;
+    transition: 0.3s ease-in;
+  }
+  .header .menu__logo {
+    margin-left: 10px;
   }
 }
 @media (min-width: 600px) {
